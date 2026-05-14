@@ -1,5 +1,5 @@
 #!vin0dkhichar/openg2p-registry-staff-portal-ui:1.1
 
 # Contents
-git://1.1-csp//https://github.com/vin0dkhichar/openg2p-registry-gen2-staff-portal-ui
+git://1.1//https://github.com/vin0dkhichar/openg2p-registry-gen2-staff-portal-ui
 
