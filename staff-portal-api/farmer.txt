@@ -1,0 +1,13 @@
+#!vin0dkhichar/openg2p-farmer-registry-staff-portal-api:G2P-4810
+
+# Contents
+git://develop//https://github.com/openg2p/farmer-registry#subdirectory=farmer-extension
+
+# Dependencies libs (as in your current API Dockerfile)
+git://1.1//https://github.com/openg2p/openg2p-fastapi-common#subdirectory=openg2p-fastapi-common
+git://1.1//https://github.com/openg2p/openg2p-fastapi-common#subdirectory=openg2p-fastapi-auth
+
+# Core
+git://develop//https://github.com/openg2p/openg2p-iam-service#subdirectory=iam-core
+git://G2P-4810-multi-level-approval//https://github.com/vin0dkhichar/openg2p-registry-gen2-core#subdirectory=openg2p-registry-core
+git://G2P-4810-multi-level-approval//https://github.com/vin0dkhichar/openg2p-registry-gen2-apis#subdirectory=openg2p-registry-staff-portal-api
