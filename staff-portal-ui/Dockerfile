@@ -12,8 +12,9 @@ RUN git clone --branch ${GIT_BRANCH} --depth 1 ${REPO_URL} .
 
 RUN --mount=type=cache,target=/root/.npm \
     npm ci
+# Do not use --omit=dev here: it prunes devDependencies required for `npm run build`.
 RUN --mount=type=cache,target=/root/.npm \
-    npm install sharp --omit=dev
+    npm install sharp
 
 ENV NEXT_TELEMETRY_DISABLED=1
 RUN --mount=type=cache,target=/app/.next/cache \
