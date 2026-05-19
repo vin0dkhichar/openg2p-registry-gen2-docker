@@ -1,3 +1,5 @@
+# syntax=docker/dockerfile:1
+
 FROM node:20-alpine AS base
 WORKDIR /app
 
@@ -8,9 +10,14 @@ ARG REPO_URL
 ARG GIT_BRANCH
 RUN git clone --branch ${GIT_BRANCH} --depth 1 ${REPO_URL} .
 
-RUN npm ci
+RUN --mount=type=cache,target=/root/.npm \
+    npm ci
+RUN --mount=type=cache,target=/root/.npm \
+    npm install sharp --omit=dev
+
 ENV NEXT_TELEMETRY_DISABLED=1
-RUN npm run build
+RUN --mount=type=cache,target=/app/.next/cache \
+    npm run build
 
 FROM base AS runner
 
@@ -25,10 +32,9 @@ RUN addgroup --system --gid 1001 nodejs \
 COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+COPY --from=builder --chown=nextjs:nodejs /app/node_modules/sharp ./node_modules/sharp
+COPY --from=builder --chown=nextjs:nodejs /app/node_modules/@img ./node_modules/@img
 
-RUN npm install sharp
-
-RUN chown -R nextjs:nodejs /app
 USER nextjs
 
 EXPOSE 3000

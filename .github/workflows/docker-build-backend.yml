@@ -244,6 +244,8 @@ jobs:
           push: true
           platforms: linux/amd64
           tags: ${{ steps.read.outputs.image }}
+          cache-from: type=gha,scope=${{ matrix.name }}
+          cache-to: type=gha,mode=max,scope=${{ matrix.name }}
           build-args: |
             REPO_URL=${{ steps.read.outputs.repo_url }}
             GIT_BRANCH=${{ steps.read.outputs.git_branch }}
