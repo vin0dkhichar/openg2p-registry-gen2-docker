@@ -1,0 +1,5 @@
+#!vin0dkhichar/openg2p-registry-staff-portal-ui:nsr-demo
+
+# Contents
+git://nsr-demo//https://github.com/vin0dkhichar/openg2p-registry-gen2-staff-portal-ui
+
