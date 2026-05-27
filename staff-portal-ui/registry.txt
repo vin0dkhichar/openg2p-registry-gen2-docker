@@ -1,5 +1,5 @@
-#!vin0dkhichar/openg2p-registry-staff-portal-ui:G2P-4810
+#!vin0dkhichar/openg2p-registry-staff-portal-ui:develop
 
 # Contents
-git://G2P-4810-multi-level-approval//https://github.com/vin0dkhichar/openg2p-registry-gen2-staff-portal-ui
+git://develop//https://github.com/vin0dkhichar/openg2p-registry-gen2-staff-portal-ui
 
